@@ -5,7 +5,7 @@ Step 1: apt-get update && apt-get -y install python-software-properties apt-file
 
 Step 2: Copy "add-apt-repository" from this repository to /usr/bin/
 
-Step 3: chmod +x /usr/bin/add-apt-repository && chown root:root /usr/bin/add-apt-repository
+Step 3: chmod o+x /usr/bin/add-apt-repository && chown root:root /usr/bin/add-apt-repository
 
 Step 4: ?
 
