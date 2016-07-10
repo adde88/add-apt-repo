@@ -1,0 +1,27 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+if [ $(id -u) != "0" ]; then
+	printf "\n${RED}You must have superuser privileges to run this script!\n${NC}" >&2
+	exit 1
+fi
+
+unamestr=`uname -r|awk -F "-" '/1/ {print $2}'`
+
+if [[ "$unamestr" =~ "kali" ]]; then
+	printf "\n${RED}Installing...${NC}\n";
+	apt-get update
+	apt-get -y install software-properties-common apt-file
+	apt-file update
+	cp ./add-apt-repository /usr/bin/add-apt-repository
+	chmod o+x /usr/bin/add-apt-repository
+	chown root:root /usr/bin/add-apt-repository
+	printf "\n${RED}Finished installing 'add-apt-repository'.${NC}\n";
+	printf "${RED}Please scroll over to look for any errors.\n${NC}";
+else
+	printf "\n${RED}You are not running Kali Linux!${NC}\n"
+	exit 1
+fi
+exit 0

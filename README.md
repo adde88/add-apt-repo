@@ -1,7 +1,7 @@
 ####"add-apt-repository"
 ######Kali Linux Rolling Edition 2016.1
 
-Step 1: apt-get update && apt-get -y install python-software-properties apt-file && apt-file update
+Step 1: apt-get update && apt-get -y install software-properties-common apt-file && apt-file update
 
 Step 2: Copy "add-apt-repository" from this repository to /usr/bin/
 
